@@ -1,0 +1,2 @@
+# Local-Network-Remote-Desktop-Streaming-Control-System
+Low-latency remote desktop control application utilizing UDP for real-time input and screen sharing, featuring automatic peer discovery via IP broadcasting within a local network. Provides a peer-to-peer based architecture where either user can act as the server or client. The App additionally utilizes user friendly UI meant for easy user use.
