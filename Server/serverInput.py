@@ -14,6 +14,18 @@ DISCOVERY_PORT = 4998
 
 SCREEN_W, SCREEN_H = pyautogui.size()
 
+def get_network_ip():
+    """Returns the local machines non-loopback IP adress"""
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(('10.255.255.255', 1))
+        IP = s.getsockname()[0]
+    except Exception:
+        IP = '127.0.0.1'
+    finally:
+        s.close()
+    return IP
+
 def discovery_server():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind(("0.0.0.0", DISCOVERY_PORT))
@@ -21,7 +33,7 @@ def discovery_server():
         try:
             data, addr = sock.recvfrom(1024)
             if data == b"DISCOVER_INPUT_SERVER":
-                server_ip = socket.gethostbyname(socket.gethostname())
+                server_ip = get_network_ip()
                 sock.sendto(f"{server_ip}:{BIND_PORT}".encode(), addr)
         except:
             pass
