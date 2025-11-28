@@ -27,7 +27,11 @@ In order to properly run, any version of python 3.x that natively has tkinter is
  - pyautogui
  - mss
    
-It is recommended that a python virtual environment is utilized to host dependencies. Ensure all dependencies are reachable from the project directory.
+It is recommended that a python virtual environment is utilized to host dependencies. Ensure all dependencies are reachable from the project directory. A requirements.txt file has been provided to allow for ease of installation. Running the command: 
+
+* **pip install requirements.txt**
+
+should install all required dependencies. If there exists issues doing it that way, pip installing one by one is a possible solution.
 
 #### Application Running
 After ensuring all files and dependencies are downloaded, you are now able to run the program. If using a virtual machine make sure it is activated to allow for dependencies to be active. Ensure you are in the correct working directory, then run the main.py file.
